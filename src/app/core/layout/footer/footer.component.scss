@@ -1,0 +1,11 @@
+@import '_variables';
+
+.footer{
+    width: 100%;
+    background: $header-background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    color: $input;
+}

@@ -1,0 +1,40 @@
+<div class="main">
+    <mat-card>
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <div class="section">
+            <mat-form-field class="full-width">
+              <mat-label>Imię i Nazwisko:</mat-label>
+              <input matInput formControlName="name">
+            </mat-form-field>
+          </div>
+          <div class="section">
+            <mat-form-field class="full-width">
+              <mat-label>E-mail:</mat-label>
+              <input matInput formControlName="email">
+            </mat-form-field>
+          </div>
+          <div class="section">
+            <mat-form-field class="full-width">
+              <mat-label>Hasło:</mat-label>
+              <input matInput formControlName="password">
+            </mat-form-field>
+          </div>
+          <div class="section">
+            <mat-form-field class="full-width">
+              <mat-label>Potwierdź hasło:</mat-label>
+              <input matInput formControlName="confirmPassword">
+            </mat-form-field>
+          </div>
+
+
+          <div class="button">
+            <button mat-raised-button color="primary">Zarejestruj się</button>
+          </div>
+          lub jeśli masz konto
+          <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">zaloguj się!</a>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>

@@ -1,0 +1,26 @@
+<div class="navbar">
+    <div class="navbar-section navbar-left">
+        <div class="logo">
+            <img routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" src="./../assets/kjm-logo.png" />
+        </div>
+    </div>
+    <div class="navbar-section navbar-right">
+        <button class="nav-link-wrapper" mat-fab [matMenuTriggerFor]="menu" color="white">
+            <mat-icon>person</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <mat-icon>home</mat-icon>
+                <span>Home</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>people_outline</mat-icon>
+                <span>Connecting</span>
+              </button>
+          <button mat-menu-item>
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+    </div>
+</div>

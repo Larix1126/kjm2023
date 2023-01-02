@@ -1,0 +1,25 @@
+@import '_variables';
+
+header, .main{
+    -webkit-box-flex: 0;
+    flex: 0 0 100%;
+}
+header{
+    background-color: $header-background;
+}
+.main-wrapper{
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.main{
+    background-color: $background-dark;
+    flex: 1;
+    margin: auto;
+    padding-top: 56px;
+    padding-bottom: 56px;   
+    width: 96vw;
+    display: flex;
+    justify-content: center;
+}
