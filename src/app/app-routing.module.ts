@@ -21,6 +21,10 @@ const routes: Routes = [
             path: 'register',
             loadChildren: () => import('./login/register/register.module').then(m => m.RegisterModule),
           },
+          {
+            path: 'board',
+            loadChildren: () => import('./_containers/active-sprint/active-sprint.module').then(m => m.ActiveSprintModule),
+          },
         ],
       },
     ],

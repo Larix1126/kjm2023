@@ -1,0 +1,80 @@
+<div cdkDropListGroup class="wrapper">
+  <div class="container">
+      <h2>To do</h2>
+    
+      <div
+        cdkDropList
+        #todoList="cdkDropList"
+        [cdkDropListData]="tasks.ToDo"
+        class="list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="box" *ngFor="let item of tasks.ToDo" cdkDrag><kjm-active-sprint-task [item]="item"></kjm-active-sprint-task></div>
+      </div>
+  </div>
+  
+  <div class="container">
+    <h2>In Progress</h2>
+  
+    <div
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="tasks.InProgress"
+      class="list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="box" *ngFor="let item of tasks.InProgress" cdkDrag><kjm-active-sprint-task [item]="item"></kjm-active-sprint-task></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>In Review</h2>
+  
+    <div
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="tasks.InReview"
+      class="list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="box" *ngFor="let item of tasks.InReview" cdkDrag><kjm-active-sprint-task [item]="item"></kjm-active-sprint-task></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Passed Review</h2>
+  
+    <div
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="tasks.PassedReview"
+      class="list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="box" *ngFor="let item of tasks.PassedReview" cdkDrag><kjm-active-sprint-task [item]="item"></kjm-active-sprint-task></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>QA</h2>
+  
+    <div
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="tasks.Qa"
+      class="list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="box" *ngFor="let item of tasks.Qa" cdkDrag><kjm-active-sprint-task [item]="item"></kjm-active-sprint-task></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>DONE</h2>
+  
+    <div
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="tasks.Done"
+      class="list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="box" *ngFor="let item of tasks.Done" cdkDrag><kjm-active-sprint-task [item]="item"></kjm-active-sprint-task></div>
+    </div>
+  </div>
+</div>
+  <button mat-raised-button color="primary" (click)="click()">Sprawdz</button>

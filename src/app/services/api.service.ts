@@ -1,35 +1,41 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { tap, take } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  private baseLoginUrl: string = 'http://localhost:3000/auth/login';
-  private baseRegisterUrl: string = 'http://localhost:3000/auth/register';
-  
+  private baseLoginUrl: string = `${environment.apiUrl}/auth/login`;
+  private baseRegisterUrl: string = `${environment.apiUrl}/auth/register`;
+  public bearerToken: string = sessionStorage.getItem('sessionToken');
+  public headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${this.bearerToken}`,
+  });
+
   constructor(private httpClient: HttpClient) {}
 
   // LOGIN WITH BEARER
-  fetchLogin(email: string, password: string) {
+  public fetchLogin(email: string, password: string) {
     const params = new HttpParams().set('email', email).set('password', password);
     return this.httpClient.get(this.baseLoginUrl, { params, responseType: 'text' }).pipe(
       tap(data => {
-        localStorage.setItem('sessionToken', data);
+        sessionStorage.setItem('sessionToken', `Bearer ${data}`);
       }),
       take(1),
     );
   }
-
-  fetchRegister(email: string, password: string, name: string) {
+  // REGISTER WITH BEARER
+  public fetchRegister(email: string, password: string, firstName: string, lastName: string) {
     const params = new HttpParams().set('email', email).set('password', password);
-    return this.httpClient.post(this.baseRegisterUrl, { email, password }, { responseType: 'text' }).pipe(
+
+    return this.httpClient.post(this.baseRegisterUrl, { email, password, firstName, lastName }, { responseType: 'text' }).pipe(
       tap(data => {
-        localStorage.setItem('currentUser', data);
+        sessionStorage.setItem('sessionToken', `Bearer ${data}`);
       }),
       take(1),
     );
-    // return this.httpClient.post(this.baseRegisterUrl, {email,password}, {responseType: 'text'}).subscribe(data => localStorage.setItem('currentUser', data));
   }
 }
